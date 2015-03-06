@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\classes-6ffb86115dce7984d2b4624047fe3e2420fadb71.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\exploded-aar\com.android.support\leanback-v17\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6c0c79d3d18fea9d6c5fbf5820768dae9c35c9e2">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\release\classes-60e1d645692d241dc90a15befd784304dbd34f72.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\release\classes-b3d2d78ccb699203b47ae28ed6be3a970f4a2cc7.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\classes-ebb769a7bf543e4bd18d70fb6bd8648c55b2507c.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\release\classes-f214341807ce1fb8a5a35f136840da6df3214351.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\6.5.87\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6384c6cd674a22610b932d9464aa6938d067f285">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\release\classes-8834c5b3ac89ad72358c638d256528bf02b18cc7.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\library-2.4.0-a0b99d500fe9785dae251fe93efaf2b7d6c320d4.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\release\classes-0acc190737a3d6e818560923008da2ed2d7721c0.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\.gradle\caches\modules-2\files-2.1\com.koushikdutta.async\androidasync\2.0.4\1e09d2918d67db8a72f61e52439e97d57415e9e3\androidasync-2.0.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1e09d2918d67db8a72f61e52439e97d57415e9e3">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\debug\androidasync-2.0.4-ebd8fb61fa71049aa9e7d23f026a5bd703765fea.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\.gradle\caches\modules-2\files-2.1\com.koushikdutta.ion\ion\2.0.4\506266412f55e294192ee02058cc3bed775c658\ion-2.0.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="0506266412f55e294192ee02058cc3bed775c658">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\debug\ion-2.0.4-536dd719790cc39337114a951a651d02506ce483.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-3f19689c0e858fa4353a9c2b1f3745cfe5bc3d92.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\exploded-aar\com.google.android.support\wearable\1.1.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="27f19641b81b1078e653d2f0e5d1ed44d158a785">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\release\classes-ddc327af54b6d2ce5030488f741c2008b544d272.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\release\internal_impl-21.0.3-1183dfefa2cf96c91bc8cf266c8b757f1ac6e38c.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\exploded-aar\com.melnykov\floatingactionbutton\1.1.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ee9ae2b87d57a33a7381c75d54db12bdf2995656">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\classes-475a35e045d2ec0f9ca66d914adeb5fb908e6371.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\classes-de1e4cde798afb06329562132ec9782c0022f0d9.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\classes-80167a855e95e3e4c602d8d8bbd6835157206460.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3\5fc52c41ef0239d1093a1eb7c3697036183677ce\gson-2.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5fc52c41ef0239d1093a1eb7c3697036183677ce">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\gson-2.3-3301b0df3e124aee0539efa72aaf7aa7a8c32a0e.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\.gradle\caches\modules-2\files-2.1\com.koushikdutta.ion\ion\2.0.8\820bcab67f0631e4d6eb8e2c41a871f235e50eb8\ion-2.0.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="820bcab67f0631e4d6eb8e2c41a871f235e50eb8">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\ion-2.0.8-f6876a31674ff9353c3c071177e4f261489d2c11.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\exploded-aar\pl.droidsonroids.gif\android-gif-drawable\1.1.2\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1a957d76cb66257f24184b660243e00fcc51605c">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\release\classes-7365e88d22bb41781b92eb71c7ba0b528f58e407.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\.gradle\caches\modules-2\files-2.1\com.koushikdutta.async\androidasync\2.0.8\a306709c5e2373ced6f3a622af4f696f2a1b7e20\androidasync-2.0.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a306709c5e2373ced6f3a622af4f696f2a1b7e20">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\androidasync-2.0.8-03151c9d5ba49850098637ae95deedf02ab25c82.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\AppData\Local\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-4b83e30b9bf8580e2436250f7947c23e0f989ee5.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\exploded-aar\pl.droidsonroids.gif\android-gif-drawable\1.1.2\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1a957d76cb66257f24184b660243e00fcc51605c">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\classes-180119a7277746a89502b756ec735eb89b1795dc.jar" />
+    </item>
+    <item
+        jar="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\6.5.87\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="95482e7c792a7c0d5a9d5461e97726bd54fe9549">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\release\classes-15dfb494a5724a9cb26592ca9a1dcd317ca2273f.jar" />
+    </item>
+
+</items>
