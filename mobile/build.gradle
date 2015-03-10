@@ -8,8 +8,8 @@ android {
         applicationId "com.felkertech.n.dex"
         minSdkVersion 17
         targetSdkVersion 21
-        versionCode 8
-        versionName "1.0-r1"
+        versionCode 10
+        versionName "1.0-r2"
     }
     buildTypes {
         release {

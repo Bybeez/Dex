@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.speech.RecognizerIntent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,6 +24,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.felkertech.n.dex.R;
 import com.felkertech.n.dex.data.Evolution;
@@ -39,7 +42,7 @@ import java.util.List;
 
 
 public class MainActivity extends Activity {
-    public static final String TAG = "Main";
+    public static final String TAG = "Dex::Main";
     private GridViewPager mRecyclerView;
     ArrayList<Pokemon> pokelist = new ArrayList<Pokemon>();
     ParsedCsv pokemon_abilities;
@@ -162,6 +165,7 @@ public class MainActivity extends Activity {
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         // Start the activity, the intent will be populated with the speech text
         startActivityForResult(intent, SPEECH_REQUEST_CODE);
+        //searchFor("Pikachu");
     }
 
     // This callback is invoked when the Speech Recognizer returns.
@@ -169,12 +173,18 @@ public class MainActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
+//        Toast.makeText(this, "requestCode = "+requestCode, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "SPEECH_REQ = "+SPEECH_REQUEST_CODE, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "resultCode = "+RESULT_OK, Toast.LENGTH_SHORT).show();
+
         if (requestCode == SPEECH_REQUEST_CODE && resultCode == RESULT_OK) {
             List<String> results = data.getStringArrayListExtra(
                     RecognizerIntent.EXTRA_RESULTS);
             String spokenText = results.get(0);
-            searchFor(spokenText);
+            Log.d(TAG, "Do a search for "+spokenText);
+//            Toast.makeText(this, "Do a search for "+spokenText, Toast.LENGTH_SHORT).show();
             // Do something with spokenText
+            searchFor(spokenText);
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -184,11 +194,28 @@ public class MainActivity extends Activity {
      * @param search Text or voice search result
      */
     public void searchFor(String search) {
+//        Toast.makeText(this, "search for "+search, Toast.LENGTH_SHORT).show();
         search = search.toLowerCase();
+        Log.d(TAG, "search for "+search);
         int i = 0;
         for(Pokemon p: pokelist) {
             if(p.species_name.toLowerCase().contains(search)) {
-                mRecyclerView.setCurrentItem(i, 1, true);
+                final int finalI = i;
+                Runnable r = new Runnable() {
+                    @Override
+                    public void run() {
+                        mRecyclerView.setCurrentItem(finalI, 1, true);
+                        Log.d(TAG, "Now scroll");
+                        //TODO Open right now, but later only when there's one
+//                        Log.d(TAG, mRecyclerView);
+//                        mRecyclerView.findViewHolderForPosition(finalI).itemView.performClick();
+                    }
+                };
+                Handler delayScroll = new Handler(Looper.getMainLooper());
+//                Toast.makeText(this, "scrooll to "+finalI, Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "Scroll to "+finalI);
+                delayScroll.postDelayed(r, 2000);
+                return;
             }
             i++;
         }

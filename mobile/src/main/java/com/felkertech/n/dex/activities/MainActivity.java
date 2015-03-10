@@ -163,12 +163,11 @@ public class MainActivity extends Activity {
         Log.d(TAG, keyCode+" was pressed");
         switch(keyCode) {
             case 20:
-//                mRecyclerView.scrollBy(0, 24);
-                mRecyclerView.requestFocus(View.FOCUS_DOWN);
+                mRecyclerView.smoothScrollBy(0, 24);
                 break;
             case 19:
-//                mRecyclerView.scrollBy(0, -24);
-                mRecyclerView.requestFocus(View.FOCUS_UP);
+                mRecyclerView.smoothScrollBy(0, -24);
+//                mRecyclerView.requestFocus(View.FOCUS_UP);
                 break;
         }
         return super.onKeyDown(keyCode, event);
@@ -277,10 +276,10 @@ public class MainActivity extends Activity {
         super.onDestroy();
         tts.shutdown();
     }
-    //TODO FIltering
+    //TODO Filters
     public void searchFor(String search) {
         search = search.toLowerCase();
-        Log.d(TAG, search);
+        //Log.d(TAG, search);
         int i = 0;
         for(Pokemon p: pokelist) {
             if(p.species_name.toLowerCase().contains(search)) {
@@ -297,13 +296,12 @@ public class MainActivity extends Activity {
                         mRecyclerView.scrollToPosition(finalI);
                         Log.d(TAG, "Now scroll");
                         //TODO Open right now, but later only when there's one
-//                        Log.d(TAG, mRecyclerView);
 //                        mRecyclerView.findViewHolderForPosition(finalI).itemView.performClick();
                     }
                 };
 
                 Handler delayScroll = new Handler(Looper.getMainLooper());
-                delayScroll.postDelayed(r, 3);
+                delayScroll.postDelayed(r, 1000);
                 return;
             }
             i++;
@@ -329,7 +327,6 @@ public class MainActivity extends Activity {
                     RecognizerIntent.EXTRA_RESULTS);
             String spokenText = results.get(0);
             searchFor(spokenText);
-            // Do something with spokenText
         }
         super.onActivityResult(requestCode, resultCode, data);
     }

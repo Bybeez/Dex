@@ -58,18 +58,11 @@
         <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\release\classes-0acc190737a3d6e818560923008da2ed2d7721c0.jar" />
     </item>
     <item
-        jar="C:\Users\N\.gradle\caches\modules-2\files-2.1\com.koushikdutta.async\androidasync\2.0.4\1e09d2918d67db8a72f61e52439e97d57415e9e3\androidasync-2.0.4.jar"
+        jar="C:\Users\N\.gradle\caches\modules-2\files-2.1\com.koushikdutta.ion\ion\2.0.9\508372c8870246051b2f839859d8340fc96d3d10\ion-2.0.9.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="1e09d2918d67db8a72f61e52439e97d57415e9e3">
-        <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\debug\androidasync-2.0.4-ebd8fb61fa71049aa9e7d23f026a5bd703765fea.jar" />
-    </item>
-    <item
-        jar="C:\Users\N\.gradle\caches\modules-2\files-2.1\com.koushikdutta.ion\ion\2.0.4\506266412f55e294192ee02058cc3bed775c658\ion-2.0.4.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="0506266412f55e294192ee02058cc3bed775c658">
-        <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\debug\ion-2.0.4-536dd719790cc39337114a951a651d02506ce483.jar" />
+        sha1="508372c8870246051b2f839859d8340fc96d3d10">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\release\ion-2.0.9-437b57e222d8c43f50fe719bf76914b89145a553.jar" />
     </item>
     <item
         jar="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
@@ -79,11 +72,11 @@
         <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-3f19689c0e858fa4353a9c2b1f3745cfe5bc3d92.jar" />
     </item>
     <item
-        jar="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\exploded-aar\com.google.android.support\wearable\1.1.0\classes.jar"
+        jar="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\exploded-aar\com.melnykov\floatingactionbutton\1.1.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="27f19641b81b1078e653d2f0e5d1ed44d158a785">
-        <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\release\classes-ddc327af54b6d2ce5030488f741c2008b544d272.jar" />
+        sha1="ee9ae2b87d57a33a7381c75d54db12bdf2995656">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\classes-475a35e045d2ec0f9ca66d914adeb5fb908e6371.jar" />
     </item>
     <item
         jar="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
@@ -93,18 +86,11 @@
         <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\release\internal_impl-21.0.3-1183dfefa2cf96c91bc8cf266c8b757f1ac6e38c.jar" />
     </item>
     <item
-        jar="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\exploded-aar\com.melnykov\floatingactionbutton\1.1.0\classes.jar"
+        jar="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\exploded-aar\com.google.android.support\wearable\1.1.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="ee9ae2b87d57a33a7381c75d54db12bdf2995656">
-        <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\classes-475a35e045d2ec0f9ca66d914adeb5fb908e6371.jar" />
-    </item>
-    <item
-        jar="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\classes-de1e4cde798afb06329562132ec9782c0022f0d9.jar" />
+        sha1="27f19641b81b1078e653d2f0e5d1ed44d158a785">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\release\classes-ddc327af54b6d2ce5030488f741c2008b544d272.jar" />
     </item>
     <item
         jar="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
@@ -114,6 +100,13 @@
         <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\classes-80167a855e95e3e4c602d8d8bbd6835157206460.jar" />
     </item>
     <item
+        jar="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\classes-de1e4cde798afb06329562132ec9782c0022f0d9.jar" />
+    </item>
+    <item
         jar="C:\Users\N\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3\5fc52c41ef0239d1093a1eb7c3697036183677ce\gson-2.3.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -121,11 +114,11 @@
         <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\gson-2.3-3301b0df3e124aee0539efa72aaf7aa7a8c32a0e.jar" />
     </item>
     <item
-        jar="C:\Users\N\.gradle\caches\modules-2\files-2.1\com.koushikdutta.ion\ion\2.0.8\820bcab67f0631e4d6eb8e2c41a871f235e50eb8\ion-2.0.8.jar"
+        jar="C:\Users\N\.gradle\caches\modules-2\files-2.1\com.koushikdutta.async\androidasync\2.0.9\6969e62b23027d9e1fc36b9f7dd8e2c8f3104324\androidasync-2.0.9.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="820bcab67f0631e4d6eb8e2c41a871f235e50eb8">
-        <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\ion-2.0.8-f6876a31674ff9353c3c071177e4f261489d2c11.jar" />
+        sha1="6969e62b23027d9e1fc36b9f7dd8e2c8f3104324">
+        <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\release\androidasync-2.0.9-ee0979ae547ace6865947286b2e552dd54317a47.jar" />
     </item>
     <item
         jar="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\exploded-aar\pl.droidsonroids.gif\android-gif-drawable\1.1.2\classes.jar"
@@ -133,13 +126,6 @@
         revision="21.1.2"
         sha1="1a957d76cb66257f24184b660243e00fcc51605c">
         <dex dex="C:\Users\N\Documents\GitHub\Dex\wear\build\intermediates\pre-dexed\release\classes-7365e88d22bb41781b92eb71c7ba0b528f58e407.jar" />
-    </item>
-    <item
-        jar="C:\Users\N\.gradle\caches\modules-2\files-2.1\com.koushikdutta.async\androidasync\2.0.8\a306709c5e2373ced6f3a622af4f696f2a1b7e20\androidasync-2.0.8.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a306709c5e2373ced6f3a622af4f696f2a1b7e20">
-        <dex dex="C:\Users\N\Documents\GitHub\Dex\mobile\build\intermediates\pre-dexed\debug\androidasync-2.0.8-03151c9d5ba49850098637ae95deedf02ab25c82.jar" />
     </item>
     <item
         jar="C:\Users\N\AppData\Local\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
