@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.felkertech.n.dex.R;
 import com.felkertech.n.dex.data.Evolution;
 import com.felkertech.n.dex.data.Move;
@@ -24,34 +25,41 @@ import java.net.MalformedURLException;
 /**
  * Created by N on 12/29/2014.
  */
-public class PokemonDialog extends AlertDialog {
+public class PokemonDialog extends MaterialDialog {
     Pokemon p;
     Context mContext;
     ParsedCsv pokemon_species;
-    private static final String TAG = "PokemonDialog";
+    MaterialDialog.Builder mdb;
+    private static final String TAG = "dex::PokemonDialog";
 
     public PokemonDialog(Context context, Pokemon pokemon, ParsedCsv pokemon_species) {
-        super(context);
+        super(new MaterialDialog.Builder(context));
         p = pokemon;
         mContext = context;
         this.pokemon_species = pokemon_species;
+        mdb = new MaterialDialog.Builder(context);
+        mdb.title(p.getFormName() + "   (" + p.species_id + ")");
     }
 
     @Override
     public void onCreate(Bundle saved) {
         LinearLayout cv = (LinearLayout) getLayoutInflater().inflate(R.layout.list_card_2, null, false);
         prepare(cv);
-        setView(cv);
+//        setView(cv);
         setContentView(cv);
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d(TAG, "Start");
+        Log.d(TAG, p.getFormName() + "   (" + p.species_id + ")");
+        setTitle(p.getFormName() + "   (" + p.species_id + ")");
     }
 
     public void prepare(View convertView) {
-//        Toast.makeText(mContext, "Prepare", Toast.LENGTH_SHORT).show();
-//        Toast.makeText(mContext, p.species_name.substring(0, 1).toUpperCase() + p.species_name.substring(1), Toast.LENGTH_SHORT).show();
         setTitle(p.getFormName() + "   (" + p.species_id + ")");
         ((TextView) convertView.findViewById(R.id.species_id)).setText("#" + p.species_id);
         ((TextView) convertView.findViewById(R.id.identifier)).setText(p.getSpecies_name());
-//        Toast.makeText(mContext, "H/W", Toast.LENGTH_SHORT).show();
         ((TextView) convertView.findViewById(R.id.height)).setText(p.getHeightFt());
         ((TextView) convertView.findViewById(R.id.weight)).setText(p.getWeightLbs());
         Log.d(TAG, p.self_types.toString()+" "+p.pokemon_id+" "+p.species_id+" "+p.species_name);

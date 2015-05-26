@@ -8,15 +8,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.felkertech.n.dex.R;
 
 /**
  * Created by N on 12/29/2014.
  */
-public class SearchDialog extends AlertDialog {
+public class SearchDialog extends MaterialDialog {
     private SearchInterface si;
     public SearchDialog(Context c) {
-        super(c);
+        super(new MaterialDialog.Builder(c));
 //        this.si = si;
     }
     public void setSearchInterface(SearchInterface si) {
@@ -27,9 +28,9 @@ public class SearchDialog extends AlertDialog {
         setTitle("Search");
         //TODO True voice button
         final LinearLayout cv = (LinearLayout) getLayoutInflater().inflate(R.layout.search, null, false);
-        setView(cv);
+//        setView(cv);
         setContentView(cv);
-        Log.d("Searchdialog", cv.findViewById(R.id.voice_search).toString());
+        Log.d("dex::Searchdialog", cv.findViewById(R.id.voice_search).toString());
         cv.findViewById(R.id.voice_search).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

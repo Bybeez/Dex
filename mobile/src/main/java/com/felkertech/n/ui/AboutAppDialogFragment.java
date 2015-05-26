@@ -9,11 +9,14 @@ import android.view.LayoutInflater;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.felkertech.n.dex.R;
 
 
 /**
  * Created by N on 9/18/2014.
+ * Last modified 25/5/2015
+ *   Move over to MaterialDialog library
  */
 public class AboutAppDialogFragment extends DialogFragment {
     @Override
@@ -33,15 +36,15 @@ public class AboutAppDialogFragment extends DialogFragment {
                 "Info wrong?  <a href='https://github.com/Fleker/pokedex'>Report an issue</a>"+
                 " or <a href='https://github.com/Fleker/Dex'>contribute to the project</a>";
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        MaterialDialog.Builder builder = new MaterialDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         LinearLayout ll = (LinearLayout) inflater.inflate(R.layout.about_dialog, null);
         ((WebView) ll.findViewById(R.id.about_dialog_webview)).loadData(data, "text/html", null);
 
-        builder.setView(ll)
-                .setTitle("About "+getString(R.string.app_name));
+        builder.customView(ll, false)
+                .title("About "+getString(R.string.app_name));
 //            builder.set
         // Create the AlertDialog object and return it
-        return builder.create();
+        return builder.build();
     }
 }

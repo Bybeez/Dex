@@ -21,20 +21,22 @@
         android:orientation="horizontal">
         <EditText
             android:id="@+id/text_search"
-            android:layout_width="280dp"
+            android:layout_width="match_parent"
+            android:minWidth="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="48dp"
             android:editable="true"
             android:enabled="true"
-            android:hint="Type in Pokemon" />
+            android:hint="Search by name" />
         <ImageButton
             android:id="@+id/search_button"
-            android:layout_width="32dp"
-            android:layout_marginLeft="-16dp"
+            android:layout_width="wrap_content"
+            android:layout_gravity="end|bottom"
             android:layout_height="32dp"
-            android:scaleType="centerCrop"
+            android:layout_marginStart="-48dp"
+            android:scaleType="centerInside"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_search_black_36dp"/>
     </LinearLayout>

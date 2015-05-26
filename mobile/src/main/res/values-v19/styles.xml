@@ -1,19 +1,15 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="android:textColorPrimary">@color/textcolor</item>
         <item name="android:windowBackground">@color/background</item>
         <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:actionBarStyle">@style/MyActionBar</item><!--
-        <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:fitsSystemWindows">true</item>
-        <item name="android:clipToPadding">false</item>-->
-    </style>
 
-    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">@color/fire</item>
+        <item name="colorPrimary">@color/fire</item>
+        <item name="colorPrimaryDark">@color/darkred</item>
+        <item name="colorAccent">@color/dragon</item>
     </style>
 
 </resources>
