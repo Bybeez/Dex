@@ -24,6 +24,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.felkertech.n.dex.R;
+import com.felkertech.n.dex.data.FilteredCsv;
 import com.felkertech.n.dex.data.ParsedCsv;
 import com.felkertech.n.dex.data.PokedexEntryCsv;
 import com.felkertech.n.dex.data.Pokemon;
@@ -39,6 +40,7 @@ import java.lang.reflect.Field;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Filter;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -159,16 +161,23 @@ public class MainActivity extends AppCompatActivity {
         });
         fab.attachToRecyclerView(mRecyclerView);
     }
+    private int index = 0;
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         Log.d(TAG, keyCode+" was pressed");
         switch(keyCode) {
-            case 20:
-                mRecyclerView.smoothScrollBy(0, 24);
+            case KeyEvent.ACTION_DOWN:
+            case KeyEvent.KEYCODE_DPAD_DOWN:
+                index = Math.max(index+1, 784);
+                mRecyclerView.scrollToPosition(index);
+//                ((MainRecycler) mRecyclerView.getAdapter()).get
+//                mRecyclerView.smoothScrollBy(0, 24);
                 break;
             case 19:
-                mRecyclerView.smoothScrollBy(0, -24);
+//                mRecyclerView.smoothScrollBy(0, -24);
 //                mRecyclerView.requestFocus(View.FOCUS_UP);
+                index = Math.min(index-1, 0);
+                mRecyclerView.scrollToPosition(index);
                 break;
         }
         return super.onKeyDown(keyCode, event);
@@ -237,14 +246,23 @@ public class MainActivity extends AppCompatActivity {
                         return;
 
                     //If secondary CSVs aren't parsed, do it now. Then, update the Pokelist with this pokemon.
-                    Log.d(TAG, pokelist.get(p).pokemon_id+"");
-                    if(pokemon_abilities == null) {
+                    Log.d(TAG, "Open Pokemon "+pokelist.get(p).pokemon_id+"");
+                    /*if(pokemon_abilities == null) {
                         try {
                             parseSecondaryCSVs();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
+                    }*/
+                    /*
+                        I want to reset as many of these sheets as I can to save memory
+                     */
+                    try {
+                        pokemon_moves = new FilteredCsv(getAssets().open("pokemon_moves.csv"), 0, FilteredCsv.EQUALS, pokelist.get(p).pokemon_id);
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
+
                     Pokemon pTemp = null;
                     Log.d(TAG, pokemon.find("id", pokelist.get(p).pokemon_id).al().toString());
                     pTemp = new Pokemon(pokemon.find("id", pokelist.get(p).pokemon_id), pokemon_abilities,
@@ -335,16 +353,17 @@ public class MainActivity extends AppCompatActivity {
      * This will parse the values of various CSV files
      */
     public void parseSecondaryCSVs() throws IOException {
+        //Only store English values; the rest are not needed
         pokemon_abilities = new ParsedCsv(getAssets().open("pokemon_abilities.csv"));
         abilities = new ParsedCsv(getAssets().open("abilities.csv"));
         pokemon_egg_groups = new ParsedCsv(getAssets().open("pokemon_egg_groups.csv"));
         egg_groups = new ParsedCsv(getAssets().open("egg_groups.csv"));
         pokemon_evolution = new ParsedCsv(getAssets().open("pokemon_evolution.csv"));
         pokemon_species = new ParsedCsv(getAssets().open("pokemon_species.csv"));
-        item_names = new ParsedCsv(getAssets().open("item_names.csv"));
+        item_names = new FilteredCsv(getAssets().open("item_names.csv"), 1, FilteredCsv.EQUALS, 9+"");
         pokemon_stats = new ParsedCsv(getAssets().open("pokemon_stats.csv"));
-        move_names = new ParsedCsv(getAssets().open("move_names.csv"));
-        location_names = new ParsedCsv(getAssets().open("location_names.csv"));
+        move_names = new FilteredCsv(getAssets().open("move_names.csv"), 1, FilteredCsv.EQUALS, 9+"");
+        location_names = new FilteredCsv(getAssets().open("location_names.csv"), 1, FilteredCsv.EQUALS, 9+"");
         pokemon_species_flavor_text = new PokedexEntryCsv(getAssets().open("pokemon_species_flavor_text.csv"));
         pokemon_species_names = new ParsedCsv(getAssets().open("pokemon_species_names.csv"));
         //pokemon_moves = new ParsedCsv(getAssets().open("pokemon_moves.csv"));

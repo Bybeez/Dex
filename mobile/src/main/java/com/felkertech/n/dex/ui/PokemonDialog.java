@@ -29,24 +29,22 @@ public class PokemonDialog extends MaterialDialog {
     Pokemon p;
     Context mContext;
     ParsedCsv pokemon_species;
-    MaterialDialog.Builder mdb;
+    View customView;
     private static final String TAG = "dex::PokemonDialog";
 
     public PokemonDialog(Context context, Pokemon pokemon, ParsedCsv pokemon_species) {
-        super(new MaterialDialog.Builder(context));
+        super(new MaterialDialog.Builder(context)
+                .customView(R.layout.list_card_2, false));
         p = pokemon;
         mContext = context;
         this.pokemon_species = pokemon_species;
-        mdb = new MaterialDialog.Builder(context);
-        mdb.title(p.getFormName() + "   (" + p.species_id + ")");
     }
 
     @Override
     public void onCreate(Bundle saved) {
-        LinearLayout cv = (LinearLayout) getLayoutInflater().inflate(R.layout.list_card_2, null, false);
-        prepare(cv);
 //        setView(cv);
-        setContentView(cv);
+//        setContentView(cv);
+//        mdb.customView(cv, false);
     }
     @Override
     public void onStart() {
@@ -54,6 +52,8 @@ public class PokemonDialog extends MaterialDialog {
         Log.d(TAG, "Start");
         Log.d(TAG, p.getFormName() + "   (" + p.species_id + ")");
         setTitle(p.getFormName() + "   (" + p.species_id + ")");
+        customView = getCustomView();
+        prepare(customView);
     }
 
     public void prepare(View convertView) {
@@ -122,17 +122,12 @@ public class PokemonDialog extends MaterialDialog {
 
         TextView move_list = (TextView) convertView.findViewById(R.id.move_list);
         move_list.setText("");
-        /*for(Move m: p.self_moves) {
+        Log.d(TAG, "Found "+p.self_moves.size()+" moves");
+        for(Move m: p.self_moves) {
             move_list.setText(move_list.getText()+"\n"+m.getName()+" - "+m.getMethod());
-        }*/
+        }
 
         //Sprite
-        //FIXME Issue with gifs in Ion
-        /*try {
-            ((WebView) convertView.findViewById(R.id.sprite_web)).loadUrl(p.getModelURL());
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }*/
         try {
             Log.d(TAG, p.getModelURL());
         } catch (MalformedURLException e) {

@@ -8,8 +8,8 @@ android {
         applicationId "com.felkertech.n.dex"
         minSdkVersion 17
         targetSdkVersion 22
-        versionCode 11
-        versionName "1.0-r3"
+        versionCode 14
+        versionName "1.1.0"
     }
     buildTypes {
         release {
@@ -22,12 +22,12 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     wearApp project(':wear')
-    compile 'com.google.android.gms:play-services:7.3.+'
-    compile 'com.android.support:cardview-v7:+'
-    compile 'com.android.support:recyclerview-v7:+'
+    compile 'com.google.android.gms:play-services:7.5.0'
+    compile 'com.android.support:cardview-v7:22.2.1'
+    compile 'com.android.support:recyclerview-v7:22.2.1'
     compile 'com.koushikdutta.ion:ion:2.+'
-    compile 'pl.droidsonroids.gif:android-gif-drawable:1.1.+'
+//    compile 'pl.droidsonroids.gif:android-gif-drawable:1.1.+'
     compile 'com.melnykov:floatingactionbutton:1.1.0'
-    compile 'com.afollestad:material-dialogs:0.7.4.2'
-    compile 'com.android.support:appcompat-v7:22.1.1'
+    compile 'com.afollestad:material-dialogs:0.7.8.1'
+    compile 'com.android.support:appcompat-v7:22.2.1'
 }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Created by N on 12/22/2014.
  */
 public class Pokemon {
-    public static final String TAG = "Pokemon";
+    public static final String TAG = "dex:Pokemon";
     //Make sure you include all of the Csv files
     public int species_id;
     public String species_name;
@@ -298,12 +298,17 @@ public class Pokemon {
 //                Log.d(TAG, pokedex_entry);
             }
         }
-        /*for(ParsedCsv.CsvRow moves: pokemon_moves.findAll("pokemon_id", pokemon_id+"")) {
+        Log.d(TAG, "Has "+pokemon_moves.rowCount()+" attacks");
+        Log.d(TAG, pokemon_moves.findAll("pokemon_id", pokemon_id+"").size()+" moves found for "+pokemon_id );
+        for(ParsedCsv.CsvRow moves: pokemon_moves.findAll("pokemon_id", pokemon_id+"")) {
+            Log.d(TAG, pokemon_moves.findAll("version_group_id", "15").size()+" version moves found");
             if(moves.getProperty("version_group_id").equals("15")) {
                 String move_id = moves.getProperty("move_id");
                 String move_name = "";
+                Log.d(TAG, "Find name: "+move_names.findAll("move_id", move_id).size()+" items");
                 for(ParsedCsv.CsvRow entries: move_names.findAll("move_id", move_id)) {
-                    if(entries.getProperty("local_language_id").equals("9") *//*&& entries.getProperty("version_id").equals("24")*//*) {
+                    if(entries.getProperty("local_language_id").equals("9")) {
+                        // *//*&& entries.getProperty("version_id").equals("24")*//*
                         move_name = entries.getProperty("name");
                     }
                 }
@@ -332,7 +337,7 @@ public class Pokemon {
                 }
                 self_moves.add(m);
             }
-        }*/
+        }
         //TODO Cries
     }
     public String getModelURL() throws MalformedURLException {
