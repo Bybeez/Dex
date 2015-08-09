@@ -56,7 +56,6 @@ public class MainRecycler extends RecyclerView.Adapter<MainRecycler.ViewHolder> 
                                                      int viewType) {
         // create a new view
         LinearLayout convertView = (LinearLayout) mInflator.inflate(R.layout.list_card_3, parent, false);
-        //        Log.d(TAG, "Creating View");
         ViewHolder vh = new ViewHolder(convertView);
         return vh;
     }
@@ -99,10 +98,6 @@ public class MainRecycler extends RecyclerView.Adapter<MainRecycler.ViewHolder> 
                             .animateGif(AnimateGifMode.ANIMATE)
 
                     .load(p.get(position).getModelURL());
-            //LOCAL::
-//            ((ImageView) convertView.findViewById(R.id.sprite)).setImageResource(p.get(position).sprite);
-//            ((ImageView) convertView.findViewById(R.id.sprite)).setImageResource(R.drawable.bulbasaur);
-//            ((ImageView) convertView.findViewById(R.id.sprite)).setImageResource(getResId(p.get(position).getModel(), Drawable.class));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -156,4 +151,7 @@ public class MainRecycler extends RecyclerView.Adapter<MainRecycler.ViewHolder> 
     public interface PokeCardInterface {
         public void onCardClick(int position);
     }
+/*    public LinearLayout getCard(int index) {
+        return views.get(index);
+    }*/
 }

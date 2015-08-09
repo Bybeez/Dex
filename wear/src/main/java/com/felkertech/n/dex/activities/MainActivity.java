@@ -27,7 +27,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.felkertech.n.dex.R;
+import com.felkertech.n.dex.data.CsvFilter;
 import com.felkertech.n.dex.data.Evolution;
+import com.felkertech.n.dex.data.FilteredCsv;
 import com.felkertech.n.dex.data.ParsedCsv;
 import com.felkertech.n.dex.data.PokedexEntryCsv;
 import com.felkertech.n.dex.data.Pokemon;
@@ -133,16 +135,14 @@ public class MainActivity extends Activity {
                     return;
 
                 int p = mRecyclerView.getCurrentItem().y;
-//                Log.d(TAG, mRecyclerView.getCurrentItem().x+" "+mRecyclerView.getCurrentItem().y);
 
-                //If secondary CSVs aren't parsed, do it now. Then, update the Pokelist with this pokemon.
-                /*if(pokemon_abilities == null) {
-                    try {
-                        parseSecondaryCSVs();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }*/
+                try {
+                    pokemon_moves = new FilteredCsv(getAssets().open("pokemon_moves.csv"),
+                            new CsvFilter[]{new CsvFilter(0, CsvFilter.EQUALS, pokelist.get(p).pokemon_id),
+                                    new CsvFilter(1, CsvFilter.EQUALS, "15")},true);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 Pokemon pTemp = null;
                 pTemp = new Pokemon(pokemon.find("id", pokelist.get(p).pokemon_id), pokemon_abilities,
                         abilities, pokemon_egg_groups, egg_groups, pokemon_evolution, pokemon_species, item_names,
@@ -224,18 +224,19 @@ public class MainActivity extends Activity {
      * This will parse the values of various CSV files
      */
     public void parseSecondaryCSVs() throws IOException {
+        //Only store English values; the rest are not needed
         pokemon_abilities = new ParsedCsv(getAssets().open("pokemon_abilities.csv"));
+//        abilities = new FilteredCsv(getAssets().open("abilities.csv"), 3, CsvFilter.EQUALS, "1");
         abilities = new ParsedCsv(getAssets().open("abilities.csv"));
         pokemon_egg_groups = new ParsedCsv(getAssets().open("pokemon_egg_groups.csv"));
         egg_groups = new ParsedCsv(getAssets().open("egg_groups.csv"));
         pokemon_evolution = new ParsedCsv(getAssets().open("pokemon_evolution.csv"));
         pokemon_species = new ParsedCsv(getAssets().open("pokemon_species.csv"));
-        item_names = new ParsedCsv(getAssets().open("item_names.csv"));
+        item_names = new FilteredCsv(getAssets().open("item_names.csv"), new CsvFilter[]{new CsvFilter(1, CsvFilter.EQUALS, "9")}, true, false);
         pokemon_stats = new ParsedCsv(getAssets().open("pokemon_stats.csv"));
-        move_names = new ParsedCsv(getAssets().open("move_names.csv"));
-        location_names = new ParsedCsv(getAssets().open("location_names.csv"));
+        move_names = new FilteredCsv(getAssets().open("move_names.csv"), new CsvFilter[]{new CsvFilter(1, CsvFilter.EQUALS, "9")}, true, false);
+        location_names = new FilteredCsv(getAssets().open("location_names.csv"), new CsvFilter[]{new CsvFilter(1, CsvFilter.EQUALS, "9")}, true, false);
         pokemon_species_flavor_text = new PokedexEntryCsv(getAssets().open("pokemon_species_flavor_text.csv"));
         pokemon_species_names = new ParsedCsv(getAssets().open("pokemon_species_names.csv"));
-//        pokemon_moves = new ParsedCsv(getAssets().open("pokemon_moves.csv"));
     }
 }

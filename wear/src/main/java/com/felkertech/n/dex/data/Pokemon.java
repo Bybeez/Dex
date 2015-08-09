@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Created by N on 12/22/2014.
  */
 public class Pokemon {
-    public static final String TAG = "Pokemon";
+    public static final String TAG = "dex:Pokemon";
     //Make sure you include all of the Csv files
     public int species_id;
     public String species_name;
@@ -71,7 +71,11 @@ public class Pokemon {
         weight = Integer.parseInt(pokemon.getProperty("weight"))/10f;
         base_xp = Integer.parseInt(pokemon.getProperty("base_experience"));
 
+        Log.d(TAG, "Found "+pokemon_abilities.findAll("pokemon_id", ""+pokemon_id).size()+" abilities for "+pokemon_id);
         for(ParsedCsv.CsvRow r: pokemon_abilities.findAll("pokemon_id", ""+pokemon_id)) {
+            Log.d(TAG, "< "+r.getProperty("ability_id"));
+            Log.d(TAG, abilities.fieldNames.toString());
+            Log.d(TAG, abilities.find("id", r.getProperty("ability_id")).size()+" items");
             String t_ability = abilities.find("id", r.getProperty("ability_id")).getProperty("identifier");
             t_ability = t_ability.replaceAll("-", " ");
             ability.add(t_ability);
@@ -136,7 +140,9 @@ public class Pokemon {
                                 how = "Level "+level+" & Atk = Def";
                         } else if(!held_item.isEmpty() && !time_of_day.isEmpty()) {
                             String held_item_name = "";
+                            Log.d(TAG, "Evolve w/item");
                             for(ParsedCsv.CsvRow items: item_names.findAll("item_id", held_item)) {
+                                Log.d(TAG, "I"+items.getProperty("name"));
                                 if(items.getProperty("local_language_id").equals("9")) {
                                     held_item_name = items.getProperty("name");
                                 }
@@ -207,7 +213,9 @@ public class Pokemon {
                         //Item
                         int item_id = Integer.parseInt(evolutionRow.getProperty("trigger_item_id"));
                         String item_name = "";
+                        Log.d(TAG, "Evolve w/item");
                         for (ParsedCsv.CsvRow items : item_names.findAll("item_id", item_id + "")) {
+                            Log.d(TAG, items.toString());
                             if (items.getProperty("local_language_id").equals("9")) {
                                 item_name = items.getProperty("name");
                             }
@@ -284,7 +292,11 @@ public class Pokemon {
         }
 
         //Pokedex Entry
-        for(ParsedCsv.CsvRow entries: pokemon_species_flavor_text.findAll("﻿species_id", species_id+"")) {
+        //TODO refactor back to Wear
+        /*Log.d(TAG, pokemon_species_flavor_text.fieldNames.al().toString());
+        Log.d(TAG, pokemon_species_flavor_text.getFieldId("﻿species_id")+"");
+        Log.d(TAG, ""+species_id);
+        */for(ParsedCsv.CsvRow entries: pokemon_species_flavor_text.findAll("﻿species_id", species_id+"")) {
 //            Log.d(TAG, entries.al().toString());
             if(entries.al().size() != 4)
                 continue;
@@ -294,41 +306,52 @@ public class Pokemon {
 //                Log.d(TAG, pokedex_entry);
             }
         }
-        if(pokemon_moves != null) {
-            for(ParsedCsv.CsvRow moves: pokemon_moves.findAll("pokemon_id", pokemon_id+"")) {
-                if(moves.getProperty("version_group_id").equals("15")) {
-                    String move_id = moves.getProperty("move_id");
-                    String move_name = "";
-                    for(ParsedCsv.CsvRow entries: move_names.findAll("move_id", move_id)) {
-                        if(entries.getProperty("local_language_id").equals("9") && entries.getProperty("version_id").equals("24")) {
-                            move_name = entries.getProperty("name");
-                        }
-                    }
-                    String move_method_id = moves.getProperty("pokemon_move_method_id");
-                    String level = moves.getProperty("level");
-                    Move m;
-                    switch (Integer.parseInt(move_method_id)) {
-                        case 1: //level-up
-                            m = new Move(move_name, move_id, "Level "+level);
-                            break;
-                        case 2: //Egg
-                            m = new Move(move_name, move_id, "Egg Move");
-                            break;
-                        case 3: //Tutor
-                            m = new Move(move_name, move_id, "Move Tutor");
-                            break;
-                        case 4: //TM
-                            m = new Move(move_name, move_id, "TM/HM");
-                            break;
-                        case 10: //Form change
-                            m = new Move(move_name, move_id, "Form Change");
-                            break;
-                        default:
-                            m = new Move(move_name, move_id, "Other method");
-                            break;
-                    }
-                    self_moves.add(m);
+        Log.d(TAG, "Has "+pokemon_moves.rowCount()+" attacks");
+//        Log.d(TAG, pokemon_moves.getRow(0).toString());
+//        Log.d(TAG, pokemon_moves.getRow(1).toString());
+//        Log.d(TAG, pokemon_moves.fieldNames+"");
+//        Log.d(TAG, pokemon_moves.getFieldId("pokemon_id")+"");
+//        Log.d(TAG, pokemon_moves.getRow(0).getProperty("pokemon_id")+"");
+//        Log.d(TAG, pokemon_moves.getRow(0).getProperty("version_group_id")+"");
+//        Log.d(TAG, pokemon_moves.findAll("pokemon_id", pokemon_id+"").size()+" moves found for "+pokemon_id);
+        for(ParsedCsv.CsvRow moves: pokemon_moves.findAll("pokemon_id", pokemon_id+"")) {
+//            Log.d(TAG, pokemon_moves.findAll("version_group_id", "15").size()+" version moves found");
+            if(moves.getProperty("version_group_id").equals("15")) {
+                String move_id = moves.getProperty("move_id");
+                Log.d(TAG, move_id+" <<");
+                String move_name = "";
+                Log.d(TAG, "Find name: "+move_names.findAll("move_id", move_id).size()+"/"+move_names.rowCount()+" items");
+                for(ParsedCsv.CsvRow entries: move_names.findAll("move_id", move_id)) {
+                    move_name = entries.getProperty("name");
+                    Log.d(TAG, move_name);
+                    /*if(entries.getProperty("local_language_id").equals("9")) {
+                        // *//**//*&& entries.getProperty("version_id").equals("24")*//**//*
+                    }*/
                 }
+                String move_method_id = moves.getProperty("pokemon_move_method_id");
+                String level = moves.getProperty("level");
+                Move m;
+                switch (Integer.parseInt(move_method_id)) {
+                    case 1: //level-up
+                        m = new Move(move_name, move_id, "Level "+level);
+                        break;
+                    case 2: //Egg
+                        m = new Move(move_name, move_id, "Egg Move");
+                        break;
+                    case 3: //Tutor
+                        m = new Move(move_name, move_id, "Move Tutor");
+                        break;
+                    case 4: //TM
+                        m = new Move(move_name, move_id, "TM/HM");
+                        break;
+                    case 10: //Form change
+                        m = new Move(move_name, move_id, "Form Change");
+                        break;
+                    default:
+                        m = new Move(move_name, move_id, "Other method");
+                        break;
+                }
+                self_moves.add(m);
             }
         }
         //TODO Cries

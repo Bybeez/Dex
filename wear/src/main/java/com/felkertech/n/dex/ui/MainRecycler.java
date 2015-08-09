@@ -59,7 +59,7 @@ public class MainRecycler extends GridPagerAdapter {
     }
 
     @Override
-    protected Object instantiateItem(ViewGroup viewGroup, int position, int col) {
+    public Object instantiateItem(ViewGroup viewGroup, int position, int col) {
         LinearLayout convertView = (LinearLayout) mInflator.inflate(R.layout.list_card_3, null, false);
 
         ((TextView) convertView.findViewById(R.id.species_id)).setText("#"+p.get(position).species_id);
@@ -99,7 +99,7 @@ public class MainRecycler extends GridPagerAdapter {
     }
 
     @Override
-    protected void destroyItem(ViewGroup container, int row, int col, Object view) {
+    public void destroyItem(ViewGroup container, int row, int col, Object view) {
         container.removeView((View)view);
     }
 

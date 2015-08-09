@@ -105,11 +105,11 @@ public class PokemonDialog extends AlertDialog {
         ((TextView) convertView.findViewById(R.id.genus)).setText(p.genus+" Pkmn");
 
         convertView.findViewById(R.id.move_list).setVisibility(View.GONE);
-        /*TextView move_list = (TextView) convertView.findViewById(R.id.move_list);
+        TextView move_list = (TextView) convertView.findViewById(R.id.move_list);
         move_list.setText("");
         for(Move m: p.self_moves) {
             move_list.setText(move_list.getText()+"\n"+m.getName()+" - "+m.getMethod());
-        }*/
+        }
     }
 
     public int getColorFromType(String type) {

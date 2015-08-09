@@ -5,6 +5,7 @@
     <color name="background">#ccc</color>
     <color name="lightgray">#ddd</color>
     <color name="darkred">#B71C1C</color>
+    <color name="selected">#00e7d7</color>
 
     <!-- Type Colors -->
     <color name="grass">#4CAF50</color>

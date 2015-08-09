@@ -24,6 +24,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.felkertech.n.dex.R;
+import com.felkertech.n.dex.data.CsvFilter;
 import com.felkertech.n.dex.data.FilteredCsv;
 import com.felkertech.n.dex.data.ParsedCsv;
 import com.felkertech.n.dex.data.PokedexEntryCsv;
@@ -164,22 +165,39 @@ public class MainActivity extends AppCompatActivity {
     private int index = 0;
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        Log.d(TAG, keyCode+" was pressed");
+//        Log.d(TAG, keyCode + " was pressed");
+        mRecyclerView.findViewHolderForAdapterPosition(index).itemView
+                .findViewById(R.id.parent)
+                .setBackgroundColor(getResources().getColor(R.color.white));
         switch(keyCode) {
             case KeyEvent.ACTION_DOWN:
             case KeyEvent.KEYCODE_DPAD_DOWN:
-                index = Math.max(index+1, 784);
-                mRecyclerView.scrollToPosition(index);
-//                ((MainRecycler) mRecyclerView.getAdapter()).get
-//                mRecyclerView.smoothScrollBy(0, 24);
+                index = Math.min(index+2, 784);
+                mRecyclerView.scrollToPosition((index==779)?index:index+4);
                 break;
-            case 19:
-//                mRecyclerView.smoothScrollBy(0, -24);
-//                mRecyclerView.requestFocus(View.FOCUS_UP);
-                index = Math.min(index-1, 0);
-                mRecyclerView.scrollToPosition(index);
+            case KeyEvent.ACTION_UP:
+            case KeyEvent.KEYCODE_DPAD_UP:
+                index = Math.max(index-2, 0);
+                mRecyclerView.scrollToPosition((index==5)?index:index-4);
+                break;
+            case KeyEvent.KEYCODE_DPAD_LEFT:
+                index = Math.max(index-1, 0);
+                mRecyclerView.scrollToPosition((index==5)?index:index-4);
+                break;
+            case KeyEvent.KEYCODE_DPAD_RIGHT:
+                index = Math.min(index+1, 784);
+                mRecyclerView.scrollToPosition((index==779)?index:index+4);
+                break;
+            case KeyEvent.KEYCODE_ENTER:
+            case KeyEvent.KEYCODE_DPAD_CENTER:
+                mRecyclerView.findViewHolderForAdapterPosition(index).itemView.performClick();
                 break;
         }
+        getSupportActionBar().hide();
+        Log.d(TAG, "Index " + index);
+        mRecyclerView.findViewHolderForAdapterPosition(index).itemView
+                .findViewById(R.id.parent)
+                .setBackgroundColor(getResources().getColor(R.color.selected));
         return super.onKeyDown(keyCode, event);
     }
     @Override
@@ -242,31 +260,35 @@ public class MainActivity extends AppCompatActivity {
             mRecyclerView.setAdapter(new MainRecycler(getApplicationContext(), pokelist, pokemon_species, new MainRecycler.PokeCardInterface() {
                 @Override
                 public void onCardClick(int p) {
-                    if(!openDialogs)
+                    if (!openDialogs)
                         return;
 
                     //If secondary CSVs aren't parsed, do it now. Then, update the Pokelist with this pokemon.
-                    Log.d(TAG, "Open Pokemon "+pokelist.get(p).pokemon_id+"");
-                    /*if(pokemon_abilities == null) {
+                    Log.d(TAG, "Open Pokemon " + pokelist.get(p).pokemon_id + "");
+                    if (pokemon_abilities == null) {
                         try {
+                            Log.d(TAG, "Null abilities");
                             parseSecondaryCSVs();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                    }*/
+                    }
                     /*
                         I want to reset as many of these sheets as I can to save memory
                      */
                     try {
-                        pokemon_moves = new FilteredCsv(getAssets().open("pokemon_moves.csv"), 0, FilteredCsv.EQUALS, pokelist.get(p).pokemon_id);
+                        pokemon_moves = new FilteredCsv(getAssets().open("pokemon_moves.csv"),
+                                new CsvFilter[]{new CsvFilter(0, CsvFilter.EQUALS, pokelist.get(p).pokemon_id),
+                                        new CsvFilter(1, CsvFilter.EQUALS, "15")}, true, false);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
 
                     Pokemon pTemp = null;
+                    Log.d(TAG, pokemon_abilities.rowCount() + " abilities");
                     Log.d(TAG, pokemon.find("id", pokelist.get(p).pokemon_id).al().toString());
                     pTemp = new Pokemon(pokemon.find("id", pokelist.get(p).pokemon_id), pokemon_abilities,
-                           abilities, pokemon_egg_groups, egg_groups, pokemon_evolution, pokemon_species, item_names,
+                            abilities, pokemon_egg_groups, egg_groups, pokemon_evolution, pokemon_species, item_names,
                             pokemon_types, types, pokemon_stats, move_names, location_names,
                             pokemon_species_flavor_text, pokemon_species_names, pokemon_moves);
 //                        Log.d(TAG, p+""+pTemp.species_name);
@@ -279,8 +301,8 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     pd.show();
-                    String narration = pTemp.getSpecies_name()+", the "+pTemp.genus+" pokemon." + pTemp.pokedex_entry;
-                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    String narration = pTemp.getSpecies_name() + ", the " + pTemp.genus + " pokemon." + pTemp.pokedex_entry;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         tts.speak(narration, TextToSpeech.QUEUE_FLUSH,
                                 null, null);
                     } else {
@@ -355,17 +377,17 @@ public class MainActivity extends AppCompatActivity {
     public void parseSecondaryCSVs() throws IOException {
         //Only store English values; the rest are not needed
         pokemon_abilities = new ParsedCsv(getAssets().open("pokemon_abilities.csv"));
+//        abilities = new FilteredCsv(getAssets().open("abilities.csv"), 3, CsvFilter.EQUALS, "1");
         abilities = new ParsedCsv(getAssets().open("abilities.csv"));
         pokemon_egg_groups = new ParsedCsv(getAssets().open("pokemon_egg_groups.csv"));
         egg_groups = new ParsedCsv(getAssets().open("egg_groups.csv"));
         pokemon_evolution = new ParsedCsv(getAssets().open("pokemon_evolution.csv"));
         pokemon_species = new ParsedCsv(getAssets().open("pokemon_species.csv"));
-        item_names = new FilteredCsv(getAssets().open("item_names.csv"), 1, FilteredCsv.EQUALS, 9+"");
+        item_names = new FilteredCsv(getAssets().open("item_names.csv"), new CsvFilter[]{new CsvFilter(1, CsvFilter.EQUALS, "9")}, true, false);
         pokemon_stats = new ParsedCsv(getAssets().open("pokemon_stats.csv"));
-        move_names = new FilteredCsv(getAssets().open("move_names.csv"), 1, FilteredCsv.EQUALS, 9+"");
-        location_names = new FilteredCsv(getAssets().open("location_names.csv"), 1, FilteredCsv.EQUALS, 9+"");
+        move_names = new FilteredCsv(getAssets().open("move_names.csv"), new CsvFilter[]{new CsvFilter(1, CsvFilter.EQUALS, "9")}, true, false);
+        location_names = new FilteredCsv(getAssets().open("location_names.csv"), new CsvFilter[]{new CsvFilter(1, CsvFilter.EQUALS, "9")}, true, false);
         pokemon_species_flavor_text = new PokedexEntryCsv(getAssets().open("pokemon_species_flavor_text.csv"));
         pokemon_species_names = new ParsedCsv(getAssets().open("pokemon_species_names.csv"));
-        //pokemon_moves = new ParsedCsv(getAssets().open("pokemon_moves.csv"));
     }
 }

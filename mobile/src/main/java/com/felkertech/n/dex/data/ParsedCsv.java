@@ -141,5 +141,8 @@ public class ParsedCsv {
         public ArrayList<String> al() {
             return data;
         }
+        public String toString() {
+            return data.toString();
+        }
     }
 }
