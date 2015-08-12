@@ -16,9 +16,11 @@ import com.felkertech.n.dex.R;
  */
 public class SearchDialog extends MaterialDialog {
     private SearchInterface si;
+    View customView;
     public SearchDialog(Context c) {
-        super(new MaterialDialog.Builder(c));
-//        this.si = si;
+        super(new MaterialDialog.Builder(c)
+                .title("Search")
+                .customView(R.layout.search, false));
     }
     public void setSearchInterface(SearchInterface si) {
         this.si = si;
@@ -26,21 +28,18 @@ public class SearchDialog extends MaterialDialog {
     @Override
     public void onCreate(Bundle saved) {
         setTitle("Search");
-        //TODO True voice button
-        final LinearLayout cv = (LinearLayout) getLayoutInflater().inflate(R.layout.search, null, false);
-//        setView(cv);
-        setContentView(cv);
-        Log.d("dex::Searchdialog", cv.findViewById(R.id.voice_search).toString());
-        cv.findViewById(R.id.voice_search).setOnClickListener(new View.OnClickListener() {
+        customView = getCustomView();
+        Log.d("dex::Searchdialog", customView.findViewById(R.id.voice_search).toString());
+        customView.findViewById(R.id.voice_search).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 si.voiceSearch();
             }
         });
-        cv.findViewById(R.id.search_button).setOnClickListener(new View.OnClickListener() {
+        customView.findViewById(R.id.search_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String search = ((EditText) cv.findViewById(R.id.text_search)).getText().toString();
+                String search = ((EditText) customView.findViewById(R.id.text_search)).getText().toString();
                 si.submitText(search);
             }
         });

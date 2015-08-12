@@ -42,9 +42,6 @@ public class PokemonDialog extends MaterialDialog {
 
     @Override
     public void onCreate(Bundle saved) {
-//        setView(cv);
-//        setContentView(cv);
-//        mdb.customView(cv, false);
     }
     @Override
     public void onStart() {

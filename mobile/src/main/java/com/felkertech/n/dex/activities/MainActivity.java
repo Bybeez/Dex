@@ -23,6 +23,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.felkertech.n.dex.R;
 import com.felkertech.n.dex.data.CsvFilter;
 import com.felkertech.n.dex.data.FilteredCsv;
@@ -33,6 +34,9 @@ import com.felkertech.n.dex.ui.MainRecycler;
 import com.felkertech.n.dex.ui.PokemonDialog;
 import com.felkertech.n.dex.ui.SearchDialog;
 import com.felkertech.n.ui.AboutAppDialogFragment;
+import com.felkertech.n.utils.AppUtils;
+import com.felkertech.n.utils.ApplicationSettings;
+import com.felkertech.n.utils.SettingsManager;
 import com.melnykov.fab.FloatingActionButton;
 
 import java.io.IOException;
@@ -161,14 +165,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         fab.attachToRecyclerView(mRecyclerView);
+
+        if(AppUtils.isTV(this)) {
+            fab.setVisibility(View.GONE);
+            getSupportActionBar().hide();
+        }
     }
     private int index = 0;
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 //        Log.d(TAG, keyCode + " was pressed");
-        mRecyclerView.findViewHolderForAdapterPosition(index).itemView
-                .findViewById(R.id.parent)
-                .setBackgroundColor(getResources().getColor(R.color.white));
+        if(mRecyclerView.findViewHolderForAdapterPosition(index) != null) {
+            mRecyclerView.findViewHolderForAdapterPosition(index).itemView
+                    .findViewById(R.id.parent)
+                    .setBackgroundColor(getResources().getColor(R.color.white));
+        }
         switch(keyCode) {
             case KeyEvent.ACTION_DOWN:
             case KeyEvent.KEYCODE_DPAD_DOWN:
@@ -181,8 +192,31 @@ public class MainActivity extends AppCompatActivity {
                 mRecyclerView.scrollToPosition((index==5)?index:index-4);
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT:
-                index = Math.max(index-1, 0);
-                mRecyclerView.scrollToPosition((index==5)?index:index-4);
+                if(index%2 == 0 && AppUtils.isTV(this)) {
+                    //Overflow
+                    String[] options = new String[]{"Search", "Settings"};
+                    new MaterialDialog.Builder(MainActivity.this)
+                            .title("Overflow")
+                            .items(options)
+                            .itemsCallback(new MaterialDialog.ListCallback() {
+                                @Override
+                                public void onSelection(MaterialDialog materialDialog, View view, int i, CharSequence charSequence) {
+                                    switch(i) {
+                                        case 0: //Search
+//                                            findViewById(R.id.fab).performClick();
+                                            launchSearch();
+                                            break;
+                                        case 1: //Settings
+                                            Intent i2 = new Intent(MainActivity.this, ApplicationSettings.class);
+                                            startActivity(i2);
+                                            break;
+                                    }
+                                }
+                            }).show();
+                } else {
+                    index = Math.max(index - 1, 0);
+                    mRecyclerView.scrollToPosition((index == 5) ? index : index - 4);
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT:
                 index = Math.min(index+1, 784);
@@ -217,6 +251,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.about:
                 new AboutAppDialogFragment().show(getFragmentManager(), "AADF");
                 break;
+            case R.id.settings:
+                Intent i2 = new Intent(this, ApplicationSettings.class);
+                startActivity(i2);
+                break;
             /*case R.id.ab_search:
                 launchSearch();
                 break;*/
@@ -248,6 +286,7 @@ public class MainActivity extends AppCompatActivity {
         };
         ad.setSearchInterface(searchInterface);
         ad.show();
+        ad.getCustomView().findViewById(R.id.text_search).requestFocus();
     }
 
     public void configureRecycler() {
@@ -302,12 +341,14 @@ public class MainActivity extends AppCompatActivity {
                     }
                     pd.show();
                     String narration = pTemp.getSpecies_name() + ", the " + pTemp.genus + " pokemon." + pTemp.pokedex_entry;
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        tts.speak(narration, TextToSpeech.QUEUE_FLUSH,
-                                null, null);
-                    } else {
-                        tts.speak(narration, TextToSpeech.QUEUE_FLUSH,
-                                null);
+                    if(new SettingsManager(getApplicationContext()).getBoolean(R.string.sm_sound)) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            tts.speak(narration, TextToSpeech.QUEUE_FLUSH,
+                                    null, null);
+                        } else {
+                            tts.speak(narration, TextToSpeech.QUEUE_FLUSH,
+                                    null);
+                        }
                     }
                 }
             }));

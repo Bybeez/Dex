@@ -1,0 +1,33 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.jenzz.materialpreference.SwitchPreference
+        android:key="@string/sm_sound"
+        android:title="Sound"
+        android:defaultValue="true"/>
+    <com.jenzz.materialpreference.PreferenceCategory
+        android:title="General">
+        <com.jenzz.materialpreference.Preference
+            android:key="beta"
+            android:title="Become a beta tester"
+            android:summary="Be the first to test new features">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://plus.google.com/communities/102039422936690861345"
+                />
+        </com.jenzz.materialpreference.Preference>
+        <com.jenzz.materialpreference.Preference
+            android:key="github"
+            android:title="Visit Project on GitHub"
+            android:summary="Report bugs or suggest features">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Fleker/Dex/"
+                />
+        </com.jenzz.materialpreference.Preference>
+        <com.jenzz.materialpreference.Preference
+            android:key="@string/about"
+            android:title="About"
+            android:summary="Report bugs or suggest features">
+
+        </com.jenzz.materialpreference.Preference>
+    </com.jenzz.materialpreference.PreferenceCategory>
+</PreferenceScreen>

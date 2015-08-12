@@ -12,5 +12,9 @@
         android:icon="@android:drawable/stat_notify_missed_call"/>-->
     <item android:id="@+id/about"
         android:title="About"
+        android:visible="false"
+        android:showAsAction="never"/>
+    <item android:id="@+id/settings"
+        android:title="Settings"
         android:showAsAction="never"/>
 </menu>
