@@ -3,36 +3,20 @@ package com.felkertech.n.dex.ui;
 /**
  * Created by N on 12/22/2014.
  */
-import android.app.AlertDialog;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
 import android.support.wearable.view.GridPagerAdapter;
-import android.text.Html;
-import android.text.method.LinkMovementMethod;
-import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.GridLayout;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.util.Log;
 
+import com.felkertech.dexc.data.ParsedCsv;
+import com.felkertech.dexc.data.Pokemon;
 import com.felkertech.n.dex.R;
-import com.felkertech.n.dex.data.ParsedCsv;
-import com.felkertech.n.dex.data.Pokemon;
-import com.koushikdutta.ion.Ion;
-import com.koushikdutta.ion.builder.AnimateGifMode;
 
-import java.lang.reflect.Field;
-import java.net.MalformedURLException;
-import java.security.PrivilegedAction;
-import java.util.*;
+import java.util.ArrayList;
 public class MainRecycler extends GridPagerAdapter {
     private String TAG = "CardAdapter";
     private Context mContext;

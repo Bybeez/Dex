@@ -1,22 +1,20 @@
 package com.felkertech.n.dex.ui;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.felkertech.dexc.data.Evolution;
+import com.felkertech.dexc.data.Move;
+import com.felkertech.dexc.data.ParsedCsv;
+import com.felkertech.dexc.data.Pokemon;
 import com.felkertech.n.dex.R;
-import com.felkertech.n.dex.data.Evolution;
-import com.felkertech.n.dex.data.Move;
-import com.felkertech.n.dex.data.ParsedCsv;
-import com.felkertech.n.dex.data.Pokemon;
+import com.felkertech.n.utils.AppUtils;
 import com.koushikdutta.ion.Ion;
 import com.koushikdutta.ion.builder.AnimateGifMode;
 
@@ -106,12 +104,7 @@ public class PokemonDialog extends MaterialDialog {
             convertView.findViewById(R.id.evolutions).setVisibility(View.GONE);
         ((TextView) convertView.findViewById(R.id.evolutions)).setText(ev); //FIXME interpret
 
-        ((TextView) convertView.findViewById(R.id.hp)).setText(p.hp + "");
-        ((TextView) convertView.findViewById(R.id.atk)).setText(p.atk + "");
-        ((TextView) convertView.findViewById(R.id.def)).setText(p.def + "");
-        ((TextView) convertView.findViewById(R.id.spa)).setText(p.spa + "");
-        ((TextView) convertView.findViewById(R.id.spd)).setText(p.spd + "");
-        ((TextView) convertView.findViewById(R.id.spe)).setText(p.spe + "");
+        displayBaseStats();
 
         //Pokedex Entry is for mobile only
         ((TextView) convertView.findViewById(R.id.pokedex_entry)).setText(p.pokedex_entry);
@@ -120,8 +113,11 @@ public class PokemonDialog extends MaterialDialog {
         TextView move_list = (TextView) convertView.findViewById(R.id.move_list);
         move_list.setText("");
         Log.d(TAG, "Found "+p.self_moves.size()+" moves");
+        String lineSpace = "\n";
+        if(AppUtils.isTV(mContext))
+            lineSpace = "\n\n";
         for(Move m: p.self_moves) {
-            move_list.setText(move_list.getText()+"\n"+m.getName()+" - "+m.getMethod());
+            move_list.setText(move_list.getText()+lineSpace+m.getName()+" - "+m.getMethod());
         }
 
         //Sprite
@@ -139,6 +135,14 @@ public class PokemonDialog extends MaterialDialog {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
+
+        convertView.findViewById(R.id.baseStats).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                secondary = !secondary;
+                secondaryDisplay();
+            }
+        });
     }
     public void doNothing() throws MalformedURLException {}
 
@@ -181,5 +185,44 @@ public class PokemonDialog extends MaterialDialog {
         else
             c = R.color.normal;
         return mContext.getResources().getColor(c);
+    }
+
+    public void displayBaseStats() {
+        ((TextView) customView.findViewById(R.id.hp)).setText(p.hp + "");
+        ((TextView) customView.findViewById(R.id.atk)).setText(p.atk + "");
+        ((TextView) customView.findViewById(R.id.def)).setText(p.def + "");
+        ((TextView) customView.findViewById(R.id.spa)).setText(p.spa + "");
+        ((TextView) customView.findViewById(R.id.spd)).setText(p.spd + "");
+        ((TextView) customView.findViewById(R.id.spe)).setText(p.spe + "");
+    }
+    public void displayBaseStatLabels() {
+        ((TextView) customView.findViewById(R.id.hp)).setText("HP");
+        ((TextView) customView.findViewById(R.id.atk)).setText("Atk");
+        ((TextView) customView.findViewById(R.id.def)).setText("Def");
+        ((TextView) customView.findViewById(R.id.spa)).setText("SpA");
+        ((TextView) customView.findViewById(R.id.spd)).setText("SpD");
+        ((TextView) customView.findViewById(R.id.spe)).setText("Spe");
+    }
+    public void secondaryDisplay() {
+        if(secondary) {
+            displayBaseStatLabels();
+        } else {
+            displayBaseStats();
+        }
+    }
+
+    public boolean secondary = false;
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch(keyCode) {
+            case KeyEvent.KEYCODE_DPAD_CENTER:
+            case KeyEvent.KEYCODE_ENTER:
+            case KeyEvent.KEYCODE_BUTTON_A:
+            case KeyEvent.KEYCODE_A:
+                secondary = !secondary;
+                secondaryDisplay();
+                break;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

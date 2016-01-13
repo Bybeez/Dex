@@ -1,9 +1,6 @@
 package com.felkertech.n.dex.activities;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,22 +11,20 @@ import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.felkertech.dexc.data.CsvFilter;
+import com.felkertech.dexc.data.FilteredCsv;
+import com.felkertech.dexc.data.ParsedCsv;
+import com.felkertech.dexc.data.PokedexEntryCsv;
+import com.felkertech.dexc.data.Pokemon;
 import com.felkertech.n.dex.R;
-import com.felkertech.n.dex.data.CsvFilter;
-import com.felkertech.n.dex.data.FilteredCsv;
-import com.felkertech.n.dex.data.ParsedCsv;
-import com.felkertech.n.dex.data.PokedexEntryCsv;
-import com.felkertech.n.dex.data.Pokemon;
 import com.felkertech.n.dex.ui.MainRecycler;
 import com.felkertech.n.dex.ui.PokemonDialog;
 import com.felkertech.n.dex.ui.SearchDialog;
@@ -41,11 +36,9 @@ import com.melnykov.fab.FloatingActionButton;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Field;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Filter;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -148,7 +141,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
+                    Log.d(TAG, "Threading");
                     parseSecondaryCSVs();
+                    Log.d(TAG, "Threading done");
                     openDialogs = true;
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -171,6 +166,14 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        index = 0;
+        onKeyDown(-1, null);
+    }
+
     private int index = 0;
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -181,12 +184,10 @@ public class MainActivity extends AppCompatActivity {
                     .setBackgroundColor(getResources().getColor(R.color.white));
         }
         switch(keyCode) {
-            case KeyEvent.ACTION_DOWN:
             case KeyEvent.KEYCODE_DPAD_DOWN:
-                index = Math.min(index+2, 784);
+                index = Math.min(index+2, 783);
                 mRecyclerView.scrollToPosition((index==779)?index:index+4);
                 break;
-            case KeyEvent.ACTION_UP:
             case KeyEvent.KEYCODE_DPAD_UP:
                 index = Math.max(index-2, 0);
                 mRecyclerView.scrollToPosition((index==5)?index:index-4);
@@ -219,19 +220,27 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT:
-                index = Math.min(index+1, 784);
+                index = Math.min(index+1, 783);
                 mRecyclerView.scrollToPosition((index==779)?index:index+4);
                 break;
             case KeyEvent.KEYCODE_ENTER:
+            case KeyEvent.KEYCODE_BUTTON_A:
+            case KeyEvent.KEYCODE_A:
             case KeyEvent.KEYCODE_DPAD_CENTER:
                 mRecyclerView.findViewHolderForAdapterPosition(index).itemView.performClick();
                 break;
         }
         getSupportActionBar().hide();
         Log.d(TAG, "Index " + index);
-        mRecyclerView.findViewHolderForAdapterPosition(index).itemView
-                .findViewById(R.id.parent)
-                .setBackgroundColor(getResources().getColor(R.color.selected));
+        Log.d(TAG, "For "+mRecyclerView.getAdapter().getItemCount());
+        RecyclerView.ViewHolder pokemonCard = mRecyclerView.findViewHolderForAdapterPosition(index);
+        if(pokemonCard != null) {
+            pokemonCard.itemView
+                    .findViewById(R.id.parent)
+                    .setBackgroundColor(getResources().getColor(R.color.selected));
+        } else {
+            Log.d(TAG, "View is null");
+        }
         return super.onKeyDown(keyCode, event);
     }
     @Override
@@ -302,6 +311,8 @@ public class MainActivity extends AppCompatActivity {
                     if (!openDialogs)
                         return;
 
+//                    Toast.makeText(MainActivity.this, "Opening...", Toast.LENGTH_SHORT).show();
+
                     //If secondary CSVs aren't parsed, do it now. Then, update the Pokelist with this pokemon.
                     Log.d(TAG, "Open Pokemon " + pokelist.get(p).pokemon_id + "");
                     if (pokemon_abilities == null) {
@@ -352,6 +363,16 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }));
+            Handler h = new Handler(Looper.getMainLooper()) {
+                @Override
+                public void handleMessage(Message msg) {
+                    super.handleMessage(msg);
+                    if(AppUtils.isTV(MainActivity.this)) {
+                        onKeyDown(-1, null);
+                    }
+                }
+            };
+            h.sendEmptyMessageDelayed(0, 500);
         }
     }
     public void onDestroy() {
@@ -376,9 +397,20 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         mRecyclerView.scrollToPosition(finalI);
+                        index = finalI;
                         Log.d(TAG, "Now scroll");
-                        //TODO Open right now, but later only when there's one
-//                        mRecyclerView.findViewHolderForPosition(finalI).itemView.performClick();
+                        Handler h = new Handler(Looper.getMainLooper()) {
+                            @Override
+                            public void handleMessage(Message msg) {
+                                super.handleMessage(msg);
+                                //TODO Open right now, but later only when there's one
+                                RecyclerView.ViewHolder firstSearchResult = mRecyclerView.findViewHolderForAdapterPosition(finalI);
+                                if(firstSearchResult != null)
+                                    firstSearchResult.itemView.performClick();
+                                onKeyDown(-1, null);
+                            }
+                        };
+                        h.sendEmptyMessageDelayed(0, 300);
                     }
                 };
 

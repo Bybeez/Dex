@@ -1,44 +1,25 @@
 package com.felkertech.n.dex.activities;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.speech.RecognizerIntent;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.wearable.view.GridViewPager;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
+import com.felkertech.dexc.data.CsvFilter;
+import com.felkertech.dexc.data.FilteredCsv;
+import com.felkertech.dexc.data.ParsedCsv;
+import com.felkertech.dexc.data.PokedexEntryCsv;
+import com.felkertech.dexc.data.Pokemon;
 import com.felkertech.n.dex.R;
-import com.felkertech.n.dex.data.CsvFilter;
-import com.felkertech.n.dex.data.Evolution;
-import com.felkertech.n.dex.data.FilteredCsv;
-import com.felkertech.n.dex.data.ParsedCsv;
-import com.felkertech.n.dex.data.PokedexEntryCsv;
-import com.felkertech.n.dex.data.Pokemon;
 import com.felkertech.n.dex.ui.MainRecycler;
 import com.felkertech.n.dex.ui.PokemonDialog;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +27,7 @@ import java.util.List;
 public class MainActivity extends Activity {
     public static final String TAG = "Dex::Main";
     private GridViewPager mRecyclerView;
-    ArrayList<Pokemon> pokelist = new ArrayList<Pokemon>();
+    ArrayList<Pokemon> pokelist = new ArrayList<>();
     ParsedCsv pokemon_abilities;
     ParsedCsv abilities;
     ParsedCsv pokemon_egg_groups;
@@ -214,7 +195,7 @@ public class MainActivity extends Activity {
                 Handler delayScroll = new Handler(Looper.getMainLooper());
 //                Toast.makeText(this, "scrooll to "+finalI, Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "Scroll to "+finalI);
-                delayScroll.postDelayed(r, 2000);
+                delayScroll.postDelayed(r, 1500);
                 return;
             }
             i++;

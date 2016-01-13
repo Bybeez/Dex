@@ -4,23 +4,26 @@ package com.felkertech.n.dex.ui;
  * Created by N on 12/22/2014.
  */
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.felkertech.dexc.data.ParsedCsv;
+import com.felkertech.dexc.data.Pokemon;
 import com.felkertech.n.dex.R;
-import com.felkertech.n.dex.data.ParsedCsv;
-import com.felkertech.n.dex.data.Pokemon;
 import com.koushikdutta.ion.Ion;
 import com.koushikdutta.ion.builder.AnimateGifMode;
 
-import java.net.MalformedURLException;
-import java.util.*;
+import java.util.ArrayList;
+
 public class MainRecycler extends RecyclerView.Adapter<MainRecycler.ViewHolder> {
     private String TAG = "CardAdapter";
     private Context mContext;
@@ -87,7 +90,22 @@ public class MainRecycler extends RecyclerView.Adapter<MainRecycler.ViewHolder> 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pci.onCardClick(position);
+                Handler h = new Handler(Looper.getMainLooper()) {
+                    @Override
+                    public void handleMessage(Message msg) {
+                        super.handleMessage(msg);
+                        Toast.makeText(mContext, "Opening...", Toast.LENGTH_SHORT).show();
+                    }
+                };
+                Handler h2 = new Handler(Looper.getMainLooper()) {
+                    @Override
+                    public void handleMessage(Message msg) {
+                        super.handleMessage(msg);
+                        pci.onCardClick(position);
+                    }
+                };
+                h.sendEmptyMessage(0);
+                h2.sendEmptyMessageDelayed(0, 50);
             }
         });
 

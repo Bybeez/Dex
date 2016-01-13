@@ -3,16 +3,15 @@ package com.felkertech.n.dex.ui;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.felkertech.dexc.data.Evolution;
+import com.felkertech.dexc.data.Move;
+import com.felkertech.dexc.data.ParsedCsv;
+import com.felkertech.dexc.data.Pokemon;
 import com.felkertech.n.dex.R;
-import com.felkertech.n.dex.data.Evolution;
-import com.felkertech.n.dex.data.Move;
-import com.felkertech.n.dex.data.ParsedCsv;
-import com.felkertech.n.dex.data.Pokemon;
 
 /**
  * Created by N on 12/29/2014.
