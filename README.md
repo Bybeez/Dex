@@ -1,5 +1,5 @@
 # Dex
-A Pokedex app for Android mobile devices and wearables
+A Pokedex app for Android phones, tablets, TVs, and wearables
 
 This app uses the Veekun database for data, and the project is also hosted here: <a href="http://github.com/fleker/pokedex">Fleker/Pokedex</a>.
 
