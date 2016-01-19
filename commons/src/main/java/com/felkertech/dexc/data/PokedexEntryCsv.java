@@ -32,10 +32,13 @@ public class PokedexEntryCsv extends ParsedCsv {
 //                    Log.d(TAG, i + line);
                     readerOpen = true;
                     i++;
-                    mtx.add(new CsvRow());
+                    CsvRow pkdxEntry = new CsvRow();
                     for (String row : RowData) {
-                        mtx.get(i).add(row);
+                        pkdxEntry.add(row);
                     }
+                    if(i == 0)
+                        fieldNames = pkdxEntry;
+                    mtx.add(pkdxEntry);
                 } else if(RowData.length < 4 && readerOpen){
                     //Add on to previous row
                     mtx.get(i).al().set(3, mtx.get(i).al().get(3) + " " + line);
@@ -55,7 +58,6 @@ public class PokedexEntryCsv extends ParsedCsv {
             catch (IOException e) {
                 // handle exception
             }
-            fieldNames = mtx.get(0);
         }
     }
 }

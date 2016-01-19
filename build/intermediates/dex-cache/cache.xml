@@ -2,207 +2,137 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\guest1\Development\Dex\wear\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
-        <dex dex="C:\Users\guest1\Development\Dex\wear\build\intermediates\pre-dexed\release\classes-0aeb163c441dfa53040c9a9e9a1c7786107cdd7c.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\wear\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
-        <dex dex="C:\Users\guest1\Development\Dex\wear\build\intermediates\pre-dexed\release\classes-aea18a63519b0033ad002fe6851391efef2252e0.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\8.4.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="e167a34eaca0b31704212f43f9576ea84e05046f">
-        <dex dex="C:\Users\guest1\Development\Dex\mobile\build\intermediates\pre-dexed\release\classes-c1e4e3959c9e18783fad3345ba06da180e08346f.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\wear\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.4.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
-        <dex dex="C:\Users\guest1\Development\Dex\wear\build\intermediates\pre-dexed\release\classes-31ad9e3be50eaafa6f44723dac676fdd259187fa.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\mobile\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
-        <dex dex="C:\Users\guest1\Development\Dex\mobile\build\intermediates\pre-dexed\release\classes-cf6976793c3b62ec07e40f51fc45a49273ba7dfd.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\mobile\build\intermediates\exploded-aar\com.github.afollestad.material-dialogs\commons\0.8.5.3\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4cc582d44384fd586daaffc8f5b88569191b7191">
-        <dex dex="C:\Users\guest1\Development\Dex\mobile\build\intermediates\pre-dexed\release\classes-becbeff8a0bdaf66f430dd5b0a315e191adf70ce.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\mobile\build\intermediates\exploded-aar\Dex\commons\unspecified\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="8d36c413c87e3060c9787508cc423c1567324f46">
-        <dex dex="C:\Users\guest1\Development\Dex\mobile\build\intermediates\pre-dexed\release\classes-10d7443f58454f5099c2c299e224b7c80c6872d8.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\mobile\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
-        <dex dex="C:\Users\guest1\Development\Dex\mobile\build\intermediates\pre-dexed\release\internal_impl-23.1.1-3aefc2d258dd9b5487e017351382303ea18b31e7.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\wear\build\intermediates\exploded-aar\com.google.android.support\wearable\1.3.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="58b928ccbaf9090c632f278d6bd31e1ae42f2457">
-        <dex dex="C:\Users\guest1\Development\Dex\wear\build\intermediates\pre-dexed\release\classes-d06d5893129938cb282a1d70c7bb177787a40b8e.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.4.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
-        <dex dex="C:\Users\guest1\Development\Dex\mobile\build\intermediates\pre-dexed\release\classes-64901228a7b32fda348f1061a75fc419d6ea6637.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\wear\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
-        <dex dex="C:\Users\guest1\Development\Dex\wear\build\intermediates\pre-dexed\release\classes-426eb93b1f4ed1344f2757989f37c784f320f705.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\mobile\build\intermediates\exploded-aar\com.jenzz\materialpreference\1.3\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="6d1bbd17cf3b4c1ada9065abca969c325ac221c6">
-        <dex dex="C:\Users\guest1\Development\Dex\mobile\build\intermediates\pre-dexed\release\classes-d710129f34d197533a0bdf0f121714b096192fe4.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\wear\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\8.4.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="e167a34eaca0b31704212f43f9576ea84e05046f">
-        <dex dex="C:\Users\guest1\Development\Dex\wear\build\intermediates\pre-dexed\release\classes-66732d455845543c4b0e1edf4ab16bcb3f4fb80f.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\mobile\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="C:\Users\guest1\Development\Dex\mobile\build\intermediates\pre-dexed\release\classes-d986ed8b98e3c1748ae583bc4f73f91ced92544b.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\mobile\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
-        <dex dex="C:\Users\guest1\Development\Dex\mobile\build\intermediates\pre-dexed\release\classes-c9843e18ce87217eb1864ca779123574db953968.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\mobile\build\intermediates\exploded-aar\com.github.afollestad.material-dialogs\core\0.8.5.3\jars\classes.jar"
+        jar="C:\Users\Nick\Development\Dex\mobile\build\intermediates\exploded-aar\com.github.afollestad.material-dialogs\core\0.8.5.3\jars\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="8d006e18bdac0fb0b0d4ec46a3a241b24d957e4e">
-        <dex dex="C:\Users\guest1\Development\Dex\mobile\build\intermediates\pre-dexed\release\classes-76f1cd709aa9388693800d5bf4b6bc6979458a16.jar" />
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\classes-574c70cd6f6745a61b88a9cf906e86cf25fa7be6.jar" />
     </item>
     <item
-        jar="C:\Users\guest1\Development\Dex\wear\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jar="C:\Users\Nick\Development\Dex\mobile\build\intermediates\exploded-aar\Dex\commons\unspecified\jars\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="C:\Users\guest1\Development\Dex\wear\build\intermediates\pre-dexed\release\classes-e81b2b18d7a731eb553272e77502a792d450ff2c.jar" />
+        sha1="c45a708c9e25840b469bf0e9ef4e390c5b5aceda">
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\classes-26aff56b1ae08192826d06e5e6e49512fcb94c09.jar" />
     </item>
     <item
-        jar="C:\Users\guest1\Development\Dex\wear\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
-        <dex dex="C:\Users\guest1\Development\Dex\wear\build\intermediates\pre-dexed\release\classes-ea6f41de545e77936adaf220481f574745cd6a71.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3\5fc52c41ef0239d1093a1eb7c3697036183677ce\gson-2.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="5fc52c41ef0239d1093a1eb7c3697036183677ce">
-        <dex dex="C:\Users\guest1\Development\Dex\wear\build\intermediates\pre-dexed\release\gson-2.3-90407061c877007a5944172b51659f977211747d.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\mobile\build\intermediates\exploded-aar\me.zhanghai.android.materialprogressbar\library\1.1.4\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2a24cba08e1d865a79e61335f5a1bd64d520106d">
-        <dex dex="C:\Users\guest1\Development\Dex\mobile\build\intermediates\pre-dexed\release\classes-85c4f26e2c28e11606cc92ea9357f02fd5ad7d42.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
-        <dex dex="C:\Users\guest1\Development\Dex\mobile\build\intermediates\pre-dexed\release\classes-314d5cfbde296ddbfcda59b9f830509e10f6e31f.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\wear\build\intermediates\exploded-aar\Dex\commons\unspecified\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="8d36c413c87e3060c9787508cc423c1567324f46">
-        <dex dex="C:\Users\guest1\Development\Dex\wear\build\intermediates\pre-dexed\release\classes-00409a0ec279ba786b3960389204f1c19ff57d9c.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\.gradle\caches\modules-2\files-2.1\com.koushikdutta.async\androidasync\2.1.6\e3d5f6ab2003e31f2cf5ea61b4731a21e9517935\androidasync-2.1.6.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="e3d5f6ab2003e31f2cf5ea61b4731a21e9517935">
-        <dex dex="C:\Users\guest1\Development\Dex\wear\build\intermediates\pre-dexed\release\androidasync-2.1.6-a334a957e1013ccde0456a0d6b3338740f70bcc7.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\mobile\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
-        <dex dex="C:\Users\guest1\Development\Dex\mobile\build\intermediates\pre-dexed\release\classes-4e249fbb9c4fb6dcda2cf0ca5372c239e02922ee.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\mobile\build\intermediates\exploded-aar\com.melnykov\floatingactionbutton\1.3.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="8c6ebb7d087d1a30bf84356bd2aecf85309fc024">
-        <dex dex="C:\Users\guest1\Development\Dex\mobile\build\intermediates\pre-dexed\release\classes-8adcf9112824bc5c419b28cb17bfacaa7d6f1633.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\Development\Dex\wear\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
-        <dex dex="C:\Users\guest1\Development\Dex\wear\build\intermediates\pre-dexed\release\internal_impl-23.1.1-c54c546f80ff5806873239434d9cf0d164060b26.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
-        <dex dex="C:\Users\guest1\Development\Dex\wear\build\intermediates\pre-dexed\release\support-annotations-23.1.1-53d9c583d3d1108fc2bfcf4c0b9891c51bfb7ba1.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\.gradle\caches\modules-2\files-2.1\com.koushikdutta.ion\ion\2.1.6\cd55ef3ba6d8b62838b658ba2507b019dffb3a08\ion-2.1.6.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="cd55ef3ba6d8b62838b658ba2507b019dffb3a08">
-        <dex dex="C:\Users\guest1\Development\Dex\wear\build\intermediates\pre-dexed\release\ion-2.1.6-1e6b394a2007bd96984bb62cb8cf469133d69fee.jar" />
-    </item>
-    <item
-        jar="C:\Users\guest1\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jar="C:\Users\Nick\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="C:\Users\guest1\Development\Dex\mobile\build\intermediates\pre-dexed\release\library-2.4.0-29febd28fc0ef1eee52d385d8cec562e1e2c21e7.jar" />
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\library-2.4.0-94f3380ea402f9582c5619c64f9f63b34486069c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nick\Development\Dex\mobile\build\intermediates\exploded-aar\me.zhanghai.android.materialprogressbar\library\1.1.4\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2a24cba08e1d865a79e61335f5a1bd64d520106d">
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\classes-20a30d9a2a078924befa82c73f61be4123073aaf.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nick\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3\5fc52c41ef0239d1093a1eb7c3697036183677ce\gson-2.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5fc52c41ef0239d1093a1eb7c3697036183677ce">
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\gson-2.3-5dbd0c1d5cd1bc463c73a55d8e42ce122b42bd66.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nick\.gradle\caches\modules-2\files-2.1\com.koushikdutta.ion\ion\2.1.6\cd55ef3ba6d8b62838b658ba2507b019dffb3a08\ion-2.1.6.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="cd55ef3ba6d8b62838b658ba2507b019dffb3a08">
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\ion-2.1.6-6659c835fce9bda4d8ecae540fd148eea89660c5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nick\Development\Dex\mobile\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\classes-9d0d042ec8cbd68c514b613d8524c01953f6f6a8.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nick\Development\Dex\mobile\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\internal_impl-23.1.1-169507b9fbb45f0a0f2779e7d9559e28efedbd71.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nick\.gradle\caches\modules-2\files-2.1\com.koushikdutta.async\androidasync\2.1.6\e3d5f6ab2003e31f2cf5ea61b4731a21e9517935\androidasync-2.1.6.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e3d5f6ab2003e31f2cf5ea61b4731a21e9517935">
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\androidasync-2.1.6-bc65963f569585a0e644e2e36cbd74f0067178c1.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nick\Development\Dex\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\classes-9437d7b518321054bb9606e133a35c0ce28d3540.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nick\Development\Dex\mobile\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\classes-a3251bc8b25991a32c98d070f78bf46d0b38e706.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nick\Development\Dex\mobile\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\classes-f94039929498adc290b4439c8c25e08e9bddb054.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nick\Development\Dex\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e167a34eaca0b31704212f43f9576ea84e05046f">
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\classes-4a86aca3a9b7d34cf40a0c7a9422cf45911eaf30.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nick\Development\Dex\mobile\build\intermediates\exploded-aar\com.github.afollestad.material-dialogs\commons\0.8.5.3\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4cc582d44384fd586daaffc8f5b88569191b7191">
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\classes-1b645e0f908aa2c43eba09504877a9210121da75.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nick\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\support-annotations-23.1.1-a981a6be9f95e210358b3f3bffd0cbc486a1782b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nick\Development\Dex\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\classes-c42ade7b0b3a476f2ffc976b02f2d069e740b1a7.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nick\Development\Dex\mobile\build\intermediates\exploded-aar\com.jenzz\materialpreference\1.3\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6d1bbd17cf3b4c1ada9065abca969c325ac221c6">
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\classes-7dc1ac34186faac09ebf690cc37d436167d261a2.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nick\Development\Dex\mobile\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\classes-0d53c88fd531d85178a8360a05b157eb0c31d837.jar" />
+    </item>
+    <item
+        jar="C:\Users\Nick\Development\Dex\mobile\build\intermediates\exploded-aar\com.melnykov\floatingactionbutton\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8c6ebb7d087d1a30bf84356bd2aecf85309fc024">
+        <dex dex="C:\Users\Nick\Development\Dex\mobile\build\intermediates\pre-dexed\debug\classes-4c241e3753b873db7ee39505a2c4aaf65485b767.jar" />
     </item>
 
 </items>

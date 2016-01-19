@@ -53,17 +53,7 @@ public class FilteredCsv extends ParsedCsv {
                                 +filters[0].getConjunction()+", "+CsvFilter.EQUALS+"; "+(filters[0].getConjunction() == CsvFilter.EQUALS));
                     }
                     for(CsvFilter f: filters) {
-                        if(f.getConjunction() == CsvFilter.CONTAINS && RowData[f.getColumn()].contains(f.getObject())) {
-//                            Log.d(TAG, i+" "+filterMatch+", "+matchAll);
-                            filterMatch = (matchAll)?filterMatch:true;
-                        } else if((f.getConjunction() == CsvFilter.EQUALS) && RowData[f.getColumn()].equals(f.getObject())) {
-                            if(l) {
-                                Log.d(TAG, i+" "+filterMatch+", "+matchAll+"  ["+RowData[0]+","+RowData[1]+","+RowData[2]+"] ");
-                            }
-                            filterMatch = (matchAll)?filterMatch:true;
-                        } else {
-                            filterMatch = (matchAll)?false:filterMatch;
-                        }
+                        filterMatch = (matchAll)?filterMatch:f.test(RowData[f.getColumn()]);
                     }
                     if(filterMatch) {
                         CsvRow newRow = new CsvRow();

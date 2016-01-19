@@ -1,8 +1,8 @@
 package com.felkertech.dexc.data;
 
 public class CsvFilter {
-    public static int CONTAINS = 3;
-    public static int EQUALS = 5;
+    public final static int CONTAINS = 3;
+    public final static int EQUALS = 5;
 
     private int column;
     private int conjunction;
@@ -23,5 +23,15 @@ public class CsvFilter {
 
     public String getObject() {
         return object;
+    }
+
+    public boolean test(String comparator) {
+        switch(getConjunction()) {
+            case CONTAINS:
+                return comparator.contains(getObject());
+            case EQUALS:
+                return comparator.equals(getObject());
+        }
+        return false;
     }
 }
